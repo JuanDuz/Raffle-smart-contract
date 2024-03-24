@@ -1,13 +1,15 @@
 # Raffle smart contract
 
+Users can enter the raffle with a fee, every raffle interval a winner from the players will be selected and get the ether.
+
 ## Project overview
 
-The objective of this project was to learn foundry and oracle interaction with Chainlink.
+The objective of this project was to learn oracle interaction with Chainlink.
 
 Using chainlink VRF & Chainlink automation.
 
-- Chainlink VRF -> Randomness
-- Chainlink automation -> Time based trigger
+- Chainlink VRF -> Randomness (In order to get a winner)
+- Chainlink automation -> Time based trigger (In order to continously pick a winner from participants)
 
 ## Use cases
 
@@ -16,14 +18,23 @@ Using chainlink VRF & Chainlink automation.
 
 2. After X period of time, the lottery will automatically draw a winner.
 
-### Build
+### Tests
 
 ```shell
-$ forge build
+$ make test
 ```
 
-### Test
+### Deploy
 
+local:
 ```shell
-$ forge test
+$ make anvil
+```
+```shell
+$ make deploy
+```
+
+To sepolia testnet:
+```shell
+$ make deploy ARGS="--network sepolia"
 ```
